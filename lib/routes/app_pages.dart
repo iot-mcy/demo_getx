@@ -1,5 +1,7 @@
 import 'package:demo_getx/main.dart';
 import 'package:demo_getx/pages/page_404.dart';
+import 'package:demo_getx/routes/route_auth_middleware.dart';
+import 'package:demo_getx/test/test_one/view.dart';
 import 'package:get/get.dart';
 
 import 'app_routes.dart';
@@ -11,6 +13,12 @@ class AppPages {
   static final routes = [
     GetPage(name: Routes.HOME, page: () => MyHomePage(), children: []),
     GetPage(name: Routes.PAGE_OTHER, page: () => Other()),
-    GetPage(name: Routes.PAGE_PROFILE, page: () => TestUserProfile()),
+    GetPage(
+      name: Routes.PAGE_PROFILE,
+      page: () => TestUserProfile(),
+      middlewares: [RouteAuthMiddleware(priority: 1)],
+    ),
+    GetPage(name: Routes.PAGE_AUTH, page: () => Auth()),
+    GetPage(name: Routes.PAGE_TEST_ONE, page: () => TestOnePage()),
   ];
 }

@@ -3,6 +3,8 @@ import 'package:demo_getx/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'routes/app_routes.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -23,6 +25,9 @@ class MyApp extends StatelessWidget {
       locale: TranslationService.locale,
       translations: TranslationService(),
       fallbackLocale: TranslationService.fallbackLocale,
+      // routingCallback: (routing){
+      //
+      // },
     );
   }
 }
@@ -60,10 +65,10 @@ class MyHomePage extends StatelessWidget {
             ElevatedButton(
                 onPressed: () async {
                   //普通路由
-                  Get.to(Other());
+                  // Get.to(Other());
 
                   //命名路由
-                  // Get.toNamed(Routes.PAGE_OTHER);
+                  Get.toNamed(Routes.PAGE_OTHER);
 
                   //进入下一个页面，但没有返回上一个页面的选项（用于SplashScreens，登录页面等）。
                   // Get.offNamed(Routes.PAGE_OTHER);
@@ -78,11 +83,67 @@ class MyHomePage extends StatelessWidget {
                   //发送数据到别名路由、动态网页链接
                   // Get.toNamed(Routes.PAGE_OTHER + "?device=phone&id=30&name=dm",
                   //     arguments: 'pa');
-
-                  //发送别名路由数据
-                  // Get.toNamed("/profile/123456?flag=true");
                 },
-                child: Text("bt_next".tr))
+                child: Text("bt_next".tr)),
+            Padding(padding: EdgeInsets.symmetric(vertical: 10)),
+            OutlinedButton(
+              onPressed: () {
+                //发送别名路由数据
+                Get.toNamed("/profile/123456?flag=true");
+              },
+              child: Text("用户信息"),
+            ),
+            Padding(padding: EdgeInsets.symmetric(vertical: 10)),
+            OutlinedButton(
+              onPressed: () {
+                Get.defaultDialog(
+                  title: "提示",
+                  middleText: "GetX Default Dialog",
+                  textCancel: "取消",
+                  textConfirm: "确定",
+                  onCancel: () {
+                    print("取消");
+                  },
+                  onConfirm: () {
+                    print("确定");
+                    Get.back();
+                  },
+                  radius: 10,
+                  barrierDismissible: false,
+                );
+              },
+              child: Text("GetX Dialog"),
+            ),
+            Padding(padding: EdgeInsets.symmetric(vertical: 10)),
+            OutlinedButton(
+              onPressed: () {
+                Get.bottomSheet(Container(
+                  color: Theme.of(context).bottomSheetTheme.backgroundColor,
+                  child: Wrap(
+                    children: [
+                      ListTile(
+                        leading: Icon(Icons.account_circle),
+                        title: Text("User"),
+                        onTap: () {},
+                      ),
+                      ListTile(
+                        leading: Icon(Icons.supervisor_account_sharp),
+                        title: Text("联系人"),
+                        onTap: () {},
+                      ),
+                    ],
+                  ),
+                ));
+              },
+              child: Text("GetX BottomSheets"),
+            ),
+            Padding(padding: EdgeInsets.symmetric(vertical: 10)),
+            OutlinedButton(
+              onPressed: () {
+                Get.toNamed(Routes.PAGE_TEST_ONE);
+              },
+              child: Text("测试GetX 插件自动生成代码"),
+            )
           ],
         ),
       ),
@@ -150,4 +211,17 @@ class TestUserProfile extends StatelessWidget {
   }
 }
 
-
+class Auth extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("登录"),
+      ),
+      body: Center(
+        child: Text("登录页面"),
+      ),
+    );
+  }
+}
