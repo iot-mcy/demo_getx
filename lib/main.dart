@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:demo_getx/lang/translation_service.dart';
 import 'package:demo_getx/routes/app_pages.dart';
 import 'package:flutter/material.dart';
@@ -118,17 +120,19 @@ class MyHomePage extends StatelessWidget {
             OutlinedButton(
               onPressed: () {
                 Get.bottomSheet(Container(
-                  color: Theme.of(context).bottomSheetTheme.backgroundColor,
+                  color: Colors.white,
                   child: Wrap(
                     children: [
                       ListTile(
                         leading: Icon(Icons.account_circle),
-                        title: Text("User"),
+                        title:
+                            Text("User", style: TextStyle(color: Colors.black)),
                         onTap: () {},
                       ),
                       ListTile(
                         leading: Icon(Icons.supervisor_account_sharp),
-                        title: Text("联系人"),
+                        title:
+                            Text("联系人", style: TextStyle(color: Colors.black)),
                         onTap: () {},
                       ),
                     ],
@@ -143,7 +147,14 @@ class MyHomePage extends StatelessWidget {
                 Get.toNamed(Routes.PAGE_TEST_ONE);
               },
               child: Text("测试GetX 插件自动生成代码"),
-            )
+            ),
+            Padding(padding: EdgeInsets.symmetric(vertical: 10)),
+            OutlinedButton(
+              onPressed: () {
+                Get.toNamed(Routes.PAGE_TEST_TWO);
+              },
+              child: Text("测试网络请求"),
+            ),
           ],
         ),
       ),

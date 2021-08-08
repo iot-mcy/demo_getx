@@ -1,5 +1,6 @@
-import 'user.dart';
 import 'package:get/get.dart';
+
+import 'user.dart';
 
 class TestOneState {
   int counter = 0;

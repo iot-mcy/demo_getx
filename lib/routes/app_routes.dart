@@ -5,4 +5,5 @@ abstract class Routes {
   static const PAGE_PROFILE = '/profile/:user_id';
   static const PAGE_AUTH = '/auth';
   static const PAGE_TEST_ONE = "/test/test_one";
+  static const PAGE_TEST_TWO = "/test/test_two";
 }
