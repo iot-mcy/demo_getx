@@ -1,17 +1,3 @@
-import 'package:demo_getx/base/base_state.dart';
-
-class PictureList extends BaseState {
-  List<Picture>? pictureList = [];
-
-  PictureList({this.pictureList});
-
-  @override
-  String toString() {
-    // TODO: implement toString
-    return pictureList.toString();
-  }
-}
-
 class Picture {
   String preview = "";
   String thumb = "";

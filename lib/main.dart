@@ -64,96 +64,125 @@ class MyHomePage extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline4,
               );
             }),
-            ElevatedButton(
-                onPressed: () async {
-                  //普通路由
-                  // Get.to(Other());
-
-                  //命名路由
-                  Get.toNamed(Routes.PAGE_OTHER);
-
-                  //进入下一个页面，但没有返回上一个页面的选项（用于SplashScreens，登录页面等）。
-                  // Get.offNamed(Routes.PAGE_OTHER);
-
-                  //测试未定义路线的导航（404错误）
-                  // Get.toNamed("/aaaa");
-
-                  //要导航到下一条路由，并在返回后立即接收或更新数据。
-                  // var v = await Get.toNamed(Routes.PAGE_OTHER);
-                  // printInfo(info: v);
-
-                  //发送数据到别名路由、动态网页链接
-                  // Get.toNamed(Routes.PAGE_OTHER + "?device=phone&id=30&name=dm",
-                  //     arguments: 'pa');
-                },
-                child: Text("bt_next".tr)),
-            Padding(padding: EdgeInsets.symmetric(vertical: 10)),
-            OutlinedButton(
-              onPressed: () {
-                //发送别名路由数据
-                Get.toNamed("/profile/123456?flag=true");
-              },
-              child: Text("用户信息"),
-            ),
-            Padding(padding: EdgeInsets.symmetric(vertical: 10)),
-            OutlinedButton(
-              onPressed: () {
-                Get.defaultDialog(
-                  title: "提示",
-                  middleText: "GetX Default Dialog",
-                  textCancel: "取消",
-                  textConfirm: "确定",
-                  onCancel: () {
-                    print("取消");
-                  },
-                  onConfirm: () {
-                    print("确定");
-                    Get.back();
-                  },
-                  radius: 10,
-                  barrierDismissible: false,
-                );
-              },
-              child: Text("GetX Dialog"),
-            ),
-            Padding(padding: EdgeInsets.symmetric(vertical: 10)),
-            OutlinedButton(
-              onPressed: () {
-                Get.bottomSheet(Container(
-                  color: Colors.white,
-                  child: Wrap(
-                    children: [
-                      ListTile(
-                        leading: Icon(Icons.account_circle),
-                        title:
-                            Text("User", style: TextStyle(color: Colors.black)),
-                        onTap: () {},
-                      ),
-                      ListTile(
-                        leading: Icon(Icons.supervisor_account_sharp),
-                        title:
-                            Text("联系人", style: TextStyle(color: Colors.black)),
-                        onTap: () {},
-                      ),
-                    ],
+            Expanded(
+              child: ListView(
+                shrinkWrap: false,
+                children: [
+                  ListTile(
+                    title: Text("普通路由"),
+                    onTap: () {
+                      Get.to(Other());
+                    },
                   ),
-                ));
-              },
-              child: Text("GetX BottomSheets"),
-            ),
-            Padding(padding: EdgeInsets.symmetric(vertical: 10)),
-            OutlinedButton(
-              onPressed: () {
-                Get.toNamed(Routes.PAGE_TEST_ONE);
-              },
-              child: Text("测试GetX 插件自动生成代码"),
-            ),
-            Padding(padding: EdgeInsets.symmetric(vertical: 10)),
-            OutlinedButton(
-              onPressed: () {
-                Get.toNamed(Routes.PAGE_TEST_TWO);
-              },
-              child: Text("测试网络请求"),
+                  Divider(height: 0),
+                  ListTile(
+                    title: Text("别名路由"),
+                    onTap: () {
+                      Get.toNamed(Routes.PAGE_OTHER);
+                    },
+                  ),
+                  Divider(height: 0),
+                  ListTile(
+                    title: Text("进入下一个页面，但没有返回上一个页面的选项（用于SplashScreens，登录页面等）"),
+                    onTap: () {
+                      Get.offNamed(Routes.PAGE_OTHER);
+                    },
+                  ),
+                  Divider(height: 0),
+                  ListTile(
+                    title: Text("未定义路线的导航（404错误）"),
+                    onTap: () {
+                      Get.toNamed("/a");
+                    },
+                  ),
+                  Divider(height: 0),
+                  ListTile(
+                    title: Text("要导航到下一条路由，并在返回后立即接收或更新数据。"),
+                    onTap: () async {
+                      var v = await Get.toNamed(Routes.PAGE_OTHER);
+                      printInfo(info: v);
+                      Get.snackbar("提示", "${v}");
+                    },
+                  ),
+                  Divider(height: 0),
+                  ListTile(
+                    title: Text("发送数据到别名路由、动态网页链接"),
+                    onTap: () {
+                      Get.toNamed(
+                          Routes.PAGE_OTHER + "?device=phone&id=30&name=dm",
+                          arguments: 'pa');
+                    },
+                  ),
+                  Divider(height: 0),
+                  ListTile(
+                    title: Text("中间件"),
+                    onTap: () {
+                      //发送别名路由数据
+                      Get.toNamed("/profile/123456?flag=true");
+                    },
+                  ),
+                  Divider(height: 0),
+                  ListTile(
+                    title: Text("dialog"),
+                    onTap: () {
+                      Get.defaultDialog(
+                        title: "提示",
+                        middleText: "GetX Default Dialog",
+                        textCancel: "取消",
+                        textConfirm: "确定",
+                        onCancel: () {
+                          print("取消");
+                        },
+                        onConfirm: () {
+                          print("确定");
+                          Get.back();
+                        },
+                        radius: 10,
+                        barrierDismissible: false,
+                      );
+                    },
+                  ),
+                  Divider(height: 0),
+                  ListTile(
+                    title: Text("bottomSheet"),
+                    onTap: () {
+                      Get.bottomSheet(Container(
+                        color: Colors.white,
+                        child: Wrap(
+                          children: [
+                            ListTile(
+                              leading: Icon(Icons.account_circle),
+                              title: Text("User",
+                                  style: TextStyle(color: Colors.black)),
+                              onTap: () {},
+                            ),
+                            ListTile(
+                              leading: Icon(Icons.supervisor_account_sharp),
+                              title: Text("联系人",
+                                  style: TextStyle(color: Colors.black)),
+                              onTap: () {},
+                            ),
+                          ],
+                        ),
+                      ));
+                    },
+                  ),
+                  Divider(height: 0),
+                  ListTile(
+                    title: Text("插件自动生成代码"),
+                    onTap: () {
+                      Get.toNamed(Routes.PAGE_TEST_ONE);
+                    },
+                  ),
+                  Divider(height: 0),
+                  ListTile(
+                    title: Text("测试网络请求"),
+                    onTap: () {
+                      Get.toNamed(Routes.PAGE_TEST_TWO);
+                    },
+                  ),
+                ],
+              ),
             ),
           ],
         ),
@@ -194,6 +223,10 @@ class Other extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text("${c.count}"),
+            Text("Arguments: ${Get.arguments}"),
+            Text("Parameters - Device: ${Get.parameters['device']}"),
+            Text("Parameters - Id: ${Get.parameters['id']}"),
+            Text("Parameters - Name: ${Get.parameters['name']}"),
             Padding(padding: EdgeInsets.symmetric(vertical: 20)),
             OutlinedButton(
                 onPressed: () {

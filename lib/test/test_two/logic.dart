@@ -1,43 +1,30 @@
+import 'package:demo_getx/base/base_controller.dart';
 import 'package:demo_getx/net/api.dart';
-import 'package:get/get.dart';
 
 import 'modes/picture.dart';
 import 'state.dart';
 
-class TestTwoLogic extends GetxController {
+class TestTwoLogic extends BaseController<TestTwoState> {
   final state = TestTwoState();
 
+  List<int> ids1 = [1];
+  List<int> ids2 = [2];
+
+  TestTwoLogic() {
+    setViewState(state);
+  }
+
+  void addPicture(Picture picture) {
+    state.pictureList.add(picture);
+    setIdle(ids1);
+  }
+
   void updatePictureList(List<Picture> list) {
-    state.pictureList().pictureList = list;
-    // state.pictureList(PictureList(pictureList: list));
-    List<int> ids = [1];
-    update(ids);
+    state.pictureList = list;
   }
 
-  void updatePictureList2(String json) {
-    state.pictureList2 = json;
-    List<int> ids = [2];
-    update(ids);
-  }
-
-  void setIdle() {
-    state.pictureList().setIdle();
-    update();
-  }
-
-  void setLoading() {
-    state.pictureList().setLoading();
-    update();
-  }
-
-  void setEmpty() {
-    state.pictureList().setEmpty();
-    update();
-  }
-
-  void setError(e, stackTrace, {String? message}) {
-    state.pictureList().setError(e, stackTrace, message: message);
-    update();
+  void updatePictureList2(List<Picture> list) {
+    state.pictureList2 = list;
   }
 
   void getPictureList() async {
@@ -50,12 +37,11 @@ class TestTwoLogic extends GetxController {
     };
 
     try {
-      setLoading();
+      setLoading(ids1);
       var response = await httpManager.get(
           "http://service.picasso.adesk.com/v1/vertical/vertical", params);
       if (response == null) {
-        setEmpty();
-        print("");
+        setEmpty(ids1);
       } else {
         var vertical = response['res']['vertical'];
         List<Picture> list = [];
@@ -64,11 +50,15 @@ class TestTwoLogic extends GetxController {
           list.add(pic);
         }
         updatePictureList(list);
-        setIdle();
+        if (list.isEmpty) {
+          setEmpty(ids1);
+        } else {
+          setIdle(ids1);
+        }
         print(response);
       }
     } catch (e, s) {
-      // logic.setError(e, s);
+      setError(ids1, e, s);
       print("");
     }
   }
@@ -82,22 +72,28 @@ class TestTwoLogic extends GetxController {
       "order": "new"
     };
     try {
-      setLoading();
+      setLoading(ids2);
       var response = await httpManager.get(
           "http://service.picasso.adesk.com/v1/vertical/vertical", params);
       if (response == null) {
-        setEmpty();
-        print("");
+        setEmpty(ids2);
       } else {
-        Future.delayed(Duration(seconds: 3), () {
-          updatePictureList2(response.toString());
-        });
-        setIdle();
+        var vertical = response['res']['vertical'];
+        List<Picture> list = [];
+        for (int i = 0; i < vertical.length; i++) {
+          Picture pic = Picture.fromJson(vertical[i]);
+          list.add(pic);
+        }
+        updatePictureList2(list);
+        if (list.isEmpty) {
+          setEmpty(ids2);
+        } else {
+          setIdle(ids2);
+        }
         print(response);
       }
     } catch (e, s) {
-      setError(e, s);
-      print("");
+      setError(ids2, e, s);
     }
   }
 }

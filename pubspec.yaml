@@ -30,6 +30,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: ^4.2.0
   dio: ^4.0.0
+  quiver: ^3.0.1
 
 dev_dependencies:
   flutter_test:
@@ -76,3 +77,8 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+  fonts:
+    - family: iconfont
+      fonts:
+        - asset: assets/fonts/iconfont.ttf
