@@ -66,14 +66,14 @@ class TestTwoPage extends StatelessWidget {
                 } else if (state.isEmpty) {
                   debugPrint("viewState: Empty");
                   return ViewStateEmptyWidget(onPressed: () {
-                    logic.getPictureList();
+                    logic.getPictureList2();
                   });
                 } else if (state.isError) {
                   debugPrint("viewState: Error");
                   return ViewStateErrorWidget(
                       error: state.viewStateError,
                       onPressed: () {
-                        logic.getPictureList();
+                        logic.getPictureList2();
                       });
                 } else if (state.isIdle) {
                   debugPrint("viewState: Idle");

@@ -176,9 +176,34 @@ class MyHomePage extends StatelessWidget {
                   ),
                   Divider(height: 0),
                   ListTile(
-                    title: Text("测试网络请求"),
+                    title: Text("测试Dio网络请求"),
                     onTap: () {
                       Get.toNamed(Routes.PAGE_TEST_TWO);
+                    },
+                  ),
+                  Divider(height: 0),
+                  ListTile(
+                    title: Text("切换主题"),
+                    onTap: () {
+                      Get.changeTheme(Get.isDarkMode
+                          ? ThemeData.light()
+                          : ThemeData.dark());
+                    },
+                  ),
+                  Divider(height: 0),
+                  ListTile(
+                    title: Text("切换成中文语言"),
+                    onTap: () {
+                      var locale = Locale('zh', 'CH');
+                      Get.updateLocale(locale);
+                    },
+                  ),
+                  Divider(height: 0),
+                  ListTile(
+                    title: Text("切换成英文语言"),
+                    onTap: () {
+                      var locale = Locale('en', 'US');
+                      Get.updateLocale(locale);
                     },
                   ),
                 ],
@@ -190,15 +215,6 @@ class MyHomePage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           c.increment();
-          var locale;
-          if (c.count % 2 == 0) {
-            locale = Locale('zh', 'CH');
-          } else {
-            locale = Locale('en', 'US');
-          }
-          Get.updateLocale(locale);
-          Get.changeTheme(
-              Get.isDarkMode ? ThemeData.light() : ThemeData.dark());
         },
         tooltip: 'Increment',
         child: Icon(Icons.add),
