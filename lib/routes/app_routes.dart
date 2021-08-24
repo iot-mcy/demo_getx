@@ -6,4 +6,6 @@ abstract class Routes {
   static const PAGE_AUTH = '/auth';
   static const PAGE_TEST_ONE = "/test/test_one";
   static const PAGE_TEST_TWO = "/test/test_two";
+  static const PAGE_TEST_THREE = "/test/test_three";
+  static const PAGE_TEST_LIFECYCLE = "/test/test_lifecycle";
 }

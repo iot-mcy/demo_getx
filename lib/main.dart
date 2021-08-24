@@ -123,6 +123,20 @@ class MyHomePage extends StatelessWidget {
                   ),
                   Divider(height: 0),
                   ListTile(
+                    title: Text("Binding使用"),
+                    onTap: () {
+                      Get.toNamed(Routes.PAGE_TEST_THREE);
+                    },
+                  ),
+                  Divider(height: 0),
+                  ListTile(
+                    title: Text("生命周期"),
+                    onTap: () {
+                      Get.toNamed(Routes.PAGE_TEST_LIFECYCLE);
+                    },
+                  ),
+                  Divider(height: 0),
+                  ListTile(
                     title: Text("dialog"),
                     onTap: () {
                       Get.defaultDialog(

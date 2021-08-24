@@ -1,7 +1,10 @@
 import 'package:demo_getx/main.dart';
 import 'package:demo_getx/pages/page_404.dart';
 import 'package:demo_getx/routes/route_auth_middleware.dart';
+import 'package:demo_getx/test/test_lifecycle/view.dart';
 import 'package:demo_getx/test/test_one/view.dart';
+import 'package:demo_getx/test/test_three/binding.dart';
+import 'package:demo_getx/test/test_three/view.dart';
 import 'package:demo_getx/test/test_two/view.dart';
 import 'package:get/get.dart';
 
@@ -24,5 +27,10 @@ class AppPages {
     GetPage(name: Routes.PAGE_AUTH, page: () => Auth()),
     GetPage(name: Routes.PAGE_TEST_ONE, page: () => TestOnePage()),
     GetPage(name: Routes.PAGE_TEST_TWO, page: () => TestTwoPage()),
+    GetPage(
+        name: Routes.PAGE_TEST_THREE,
+        page: () => TestThreePage(),
+        binding: TestThreeBinding()),
+    GetPage(name: Routes.PAGE_TEST_LIFECYCLE, page: () => TestLifecyclePage()),
   ];
 }
