@@ -11,6 +11,28 @@ void main() {
   runApp(MyApp());
 }
 
+List<ThemeData> themeList = [
+  ThemeData(primarySwatch: Colors.red),
+  ThemeData(primarySwatch: Colors.pink),
+  ThemeData(primarySwatch: Colors.purple),
+  ThemeData(primarySwatch: Colors.deepPurple),
+  ThemeData(primarySwatch: Colors.indigo),
+  ThemeData(primarySwatch: Colors.blue),
+  ThemeData(primarySwatch: Colors.lightBlue),
+  ThemeData(primarySwatch: Colors.cyan),
+  ThemeData(primarySwatch: Colors.teal),
+  ThemeData(primarySwatch: Colors.green),
+  ThemeData(primarySwatch: Colors.lightGreen),
+  ThemeData(primarySwatch: Colors.lime),
+  ThemeData(primarySwatch: Colors.yellow),
+  ThemeData(primarySwatch: Colors.amber),
+  ThemeData(primarySwatch: Colors.orange),
+  ThemeData(primarySwatch: Colors.deepOrange),
+  ThemeData(primarySwatch: Colors.brown),
+  ThemeData(primarySwatch: Colors.grey),
+  ThemeData(primarySwatch: Colors.blueGrey),
+];
+
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -18,9 +40,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'title'.tr,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: themeList[0],
       unknownRoute: AppPages.page_404,
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
@@ -64,6 +84,13 @@ class MyHomePage extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline4,
               );
             }),
+            // SizedBox(
+            //   width: 90,
+            //   height: 30,
+            //   child: DecoratedBox(
+            //     decoration: BoxDecoration(color: Colors.red),
+            //   ),
+            // ),
             Expanded(
               child: ListView(
                 shrinkWrap: false,
@@ -199,9 +226,322 @@ class MyHomePage extends StatelessWidget {
                   ListTile(
                     title: Text("切换主题"),
                     onTap: () {
-                      Get.changeTheme(Get.isDarkMode
-                          ? ThemeData.light()
-                          : ThemeData.dark());
+                      Get.defaultDialog(
+                        title: "切换主题",
+                        content: SizedBox(
+                          width: GetPlatform.isWeb ? 300 : double.infinity,
+                          height: 400,
+                          child: ListView(
+                            shrinkWrap: false,
+                            children: [
+                              ListTile(
+                                title: Text("red"),
+                                leading: SizedBox(
+                                  width: 40,
+                                  height: 40,
+                                  child: DecoratedBox(
+                                    decoration:
+                                        BoxDecoration(color: Colors.red),
+                                  ),
+                                ),
+                                onTap: () {
+                                  Get.changeTheme(themeList[0]);
+                                  Get.back();
+                                },
+                              ),
+                              Divider(height: 0),
+                              ListTile(
+                                title: Text("pink"),
+                                leading: SizedBox(
+                                  width: 40,
+                                  height: 40,
+                                  child: DecoratedBox(
+                                    decoration:
+                                        BoxDecoration(color: Colors.pink),
+                                  ),
+                                ),
+                                onTap: () {
+                                  Get.changeTheme(themeList[1]);
+                                  Get.back();
+                                },
+                              ),
+                              Divider(height: 0),
+                              ListTile(
+                                title: Text("purple"),
+                                leading: SizedBox(
+                                  width: 40,
+                                  height: 40,
+                                  child: DecoratedBox(
+                                    decoration:
+                                        BoxDecoration(color: Colors.purple),
+                                  ),
+                                ),
+                                onTap: () {
+                                  Get.changeTheme(themeList[2]);
+                                  Get.back();
+                                },
+                              ),
+                              Divider(height: 0),
+                              ListTile(
+                                title: Text("deepPurple"),
+                                leading: SizedBox(
+                                  width: 40,
+                                  height: 40,
+                                  child: DecoratedBox(
+                                    decoration:
+                                        BoxDecoration(color: Colors.deepPurple),
+                                  ),
+                                ),
+                                onTap: () {
+                                  Get.changeTheme(themeList[3]);
+                                  Get.back();
+                                },
+                              ),
+                              Divider(height: 0),
+                              ListTile(
+                                title: Text("indigo"),
+                                leading: SizedBox(
+                                  width: 40,
+                                  height: 40,
+                                  child: DecoratedBox(
+                                    decoration:
+                                        BoxDecoration(color: Colors.indigo),
+                                  ),
+                                ),
+                                onTap: () {
+                                  Get.changeTheme(themeList[4]);
+                                  Get.back();
+                                },
+                              ),
+                              Divider(height: 0),
+                              ListTile(
+                                title: Text("blue"),
+                                leading: SizedBox(
+                                  width: 40,
+                                  height: 40,
+                                  child: DecoratedBox(
+                                    decoration:
+                                        BoxDecoration(color: Colors.blue),
+                                  ),
+                                ),
+                                onTap: () {
+                                  Get.changeTheme(themeList[5]);
+                                  Get.back();
+                                },
+                              ),
+                              Divider(height: 0),
+                              ListTile(
+                                title: Text("lightBlue"),
+                                leading: SizedBox(
+                                  width: 40,
+                                  height: 40,
+                                  child: DecoratedBox(
+                                    decoration:
+                                        BoxDecoration(color: Colors.lightBlue),
+                                  ),
+                                ),
+                                onTap: () {
+                                  Get.changeTheme(themeList[6]);
+                                  Get.back();
+                                },
+                              ),
+                              Divider(height: 0),
+                              ListTile(
+                                title: Text("cyan"),
+                                leading: SizedBox(
+                                  width: 40,
+                                  height: 40,
+                                  child: DecoratedBox(
+                                    decoration:
+                                        BoxDecoration(color: Colors.cyan),
+                                  ),
+                                ),
+                                onTap: () {
+                                  Get.changeTheme(themeList[7]);
+                                  Get.back();
+                                },
+                              ),
+                              Divider(height: 0),
+                              ListTile(
+                                title: Text("teal"),
+                                leading: SizedBox(
+                                  width: 40,
+                                  height: 40,
+                                  child: DecoratedBox(
+                                    decoration:
+                                        BoxDecoration(color: Colors.teal),
+                                  ),
+                                ),
+                                onTap: () {
+                                  Get.changeTheme(themeList[8]);
+                                  Get.back();
+                                },
+                              ),
+                              Divider(height: 0),
+                              ListTile(
+                                title: Text("green"),
+                                leading: SizedBox(
+                                  width: 40,
+                                  height: 40,
+                                  child: DecoratedBox(
+                                    decoration:
+                                        BoxDecoration(color: Colors.green),
+                                  ),
+                                ),
+                                onTap: () {
+                                  Get.changeTheme(themeList[9]);
+                                  Get.back();
+                                },
+                              ),
+                              Divider(height: 0),
+                              ListTile(
+                                title: Text("lightGreen"),
+                                leading: SizedBox(
+                                  width: 40,
+                                  height: 40,
+                                  child: DecoratedBox(
+                                    decoration:
+                                        BoxDecoration(color: Colors.lightGreen),
+                                  ),
+                                ),
+                                onTap: () {
+                                  Get.changeTheme(themeList[10]);
+                                  Get.back();
+                                },
+                              ),
+                              Divider(height: 0),
+                              ListTile(
+                                title: Text("lime"),
+                                leading: SizedBox(
+                                  width: 40,
+                                  height: 40,
+                                  child: DecoratedBox(
+                                    decoration:
+                                        BoxDecoration(color: Colors.lime),
+                                  ),
+                                ),
+                                onTap: () {
+                                  Get.changeTheme(themeList[11]);
+                                  Get.back();
+                                },
+                              ),
+                              Divider(height: 0),
+                              ListTile(
+                                title: Text("yellow"),
+                                leading: SizedBox(
+                                  width: 40,
+                                  height: 40,
+                                  child: DecoratedBox(
+                                    decoration:
+                                        BoxDecoration(color: Colors.yellow),
+                                  ),
+                                ),
+                                onTap: () {
+                                  Get.changeTheme(themeList[12]);
+                                  Get.back();
+                                },
+                              ),
+                              Divider(height: 0),
+                              ListTile(
+                                title: Text("amber"),
+                                leading: SizedBox(
+                                  width: 40,
+                                  height: 40,
+                                  child: DecoratedBox(
+                                    decoration:
+                                        BoxDecoration(color: Colors.amber),
+                                  ),
+                                ),
+                                onTap: () {
+                                  Get.changeTheme(themeList[13]);
+                                  Get.back();
+                                },
+                              ),
+                              Divider(height: 0),
+                              ListTile(
+                                title: Text("orange"),
+                                leading: SizedBox(
+                                  width: 40,
+                                  height: 40,
+                                  child: DecoratedBox(
+                                    decoration:
+                                        BoxDecoration(color: Colors.orange),
+                                  ),
+                                ),
+                                onTap: () {
+                                  Get.changeTheme(themeList[14]);
+                                  Get.back();
+                                },
+                              ),
+                              Divider(height: 0),
+                              ListTile(
+                                title: Text("deepOrange"),
+                                leading: SizedBox(
+                                  width: 40,
+                                  height: 40,
+                                  child: DecoratedBox(
+                                    decoration:
+                                        BoxDecoration(color: Colors.deepOrange),
+                                  ),
+                                ),
+                                onTap: () {
+                                  Get.changeTheme(themeList[15]);
+                                  Get.back();
+                                },
+                              ),
+                              Divider(height: 0),
+                              ListTile(
+                                title: Text("brown"),
+                                leading: SizedBox(
+                                  width: 40,
+                                  height: 40,
+                                  child: DecoratedBox(
+                                    decoration:
+                                        BoxDecoration(color: Colors.brown),
+                                  ),
+                                ),
+                                onTap: () {
+                                  Get.changeTheme(themeList[16]);
+                                  Get.back();
+                                },
+                              ),
+                              Divider(height: 0),
+                              ListTile(
+                                title: Text("grey"),
+                                leading: SizedBox(
+                                  width: 40,
+                                  height: 40,
+                                  child: DecoratedBox(
+                                    decoration:
+                                        BoxDecoration(color: Colors.grey),
+                                  ),
+                                ),
+                                onTap: () {
+                                  Get.changeTheme(themeList[17]);
+                                  Get.back();
+                                },
+                              ),
+                              Divider(height: 0),
+                              ListTile(
+                                title: Text("blueGrey"),
+                                leading: SizedBox(
+                                  width: 40,
+                                  height: 40,
+                                  child: DecoratedBox(
+                                    decoration:
+                                        BoxDecoration(color: Colors.blueGrey),
+                                  ),
+                                ),
+                                onTap: () {
+                                  Get.changeTheme(themeList[18]);
+                                  Get.back();
+                                },
+                              ),
+                              Divider(height: 0),
+                            ],
+                          ),
+                        ),
+                      );
                     },
                   ),
                   Divider(height: 0),
