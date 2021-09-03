@@ -18,9 +18,17 @@ class TestLifecyclePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(""),
+            Obx(() {
+              return Text("Count:${state.count}");
+            }),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {
+          logic.increment();
+        },
       ),
     );
   }
