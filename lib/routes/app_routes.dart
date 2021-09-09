@@ -8,4 +8,6 @@ abstract class Routes {
   static const PAGE_TEST_TWO = "/test/test_two";
   static const PAGE_TEST_THREE = "/test/test_three";
   static const PAGE_TEST_LIFECYCLE = "/test/test_lifecycle";
+  static const PAGE_VIDEO = "/test/video";
+  static const PAGE_VIDEO_2 = "/test/video2";
 }

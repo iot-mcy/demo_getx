@@ -210,20 +210,6 @@ class MyHomePage extends StatelessWidget {
                   ),
                   Divider(height: 0),
                   ListTile(
-                    title: Text("插件自动生成代码"),
-                    onTap: () {
-                      Get.toNamed(Routes.PAGE_TEST_ONE);
-                    },
-                  ),
-                  Divider(height: 0),
-                  ListTile(
-                    title: Text("测试Dio网络请求"),
-                    onTap: () {
-                      Get.toNamed(Routes.PAGE_TEST_TWO);
-                    },
-                  ),
-                  Divider(height: 0),
-                  ListTile(
                     title: Text("切换主题"),
                     onTap: () {
                       Get.defaultDialog(
@@ -560,6 +546,34 @@ class MyHomePage extends StatelessWidget {
                       Get.updateLocale(locale);
                     },
                   ),
+                  ListTile(
+                    title: Text("插件自动生成代码"),
+                    onTap: () {
+                      Get.toNamed(Routes.PAGE_TEST_ONE);
+                    },
+                  ),
+                  Divider(height: 0),
+                  ListTile(
+                    title: Text("测试Dio网络请求"),
+                    onTap: () {
+                      Get.toNamed(Routes.PAGE_TEST_TWO);
+                    },
+                  ),
+                  Divider(height: 0),
+                  ListTile(
+                    title: Text("测试视频播放"),
+                    onTap: () {
+                      Get.toNamed(Routes.PAGE_VIDEO);
+                    },
+                  ),
+                  Divider(height: 0),
+                  ListTile(
+                    title: Text("测试视频播放fijkplayer"),
+                    onTap: () {
+                      Get.toNamed(Routes.PAGE_VIDEO_2);
+                    },
+                  ),
+                  Divider(height: 0),
                 ],
               ),
             ),
