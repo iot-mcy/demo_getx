@@ -7,7 +7,7 @@ import 'package:demo_getx/test/test_three/binding.dart';
 import 'package:demo_getx/test/test_three/view.dart';
 import 'package:demo_getx/test/test_two/view.dart';
 import 'package:demo_getx/test/video/view.dart';
-import 'package:demo_getx/test/video2fijkplayer/view.dart';
+import 'package:demo_getx/test/video2_page_view/view.dart';
 import 'package:get/get.dart';
 
 import 'app_routes.dart';
@@ -35,6 +35,6 @@ class AppPages {
         binding: TestThreeBinding()),
     GetPage(name: Routes.PAGE_TEST_LIFECYCLE, page: () => TestLifecyclePage()),
     GetPage(name: Routes.PAGE_VIDEO, page: () => VideoPage()),
-    GetPage(name: Routes.PAGE_VIDEO_2, page: () => Video2fijkplayerPage()),
+    GetPage(name: Routes.PAGE_VIDEO_2, page: () => Video2PageViewPage()),
   ];
 }

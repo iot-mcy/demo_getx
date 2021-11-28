@@ -215,8 +215,8 @@ class MyHomePage extends StatelessWidget {
                       Get.defaultDialog(
                         title: "切换主题",
                         content: SizedBox(
-                          width: GetPlatform.isWeb ? 300 : double.infinity,
-                          height: 400,
+                          width: GetPlatform.isWeb ? 400 : 400,//0-400
+                          height: 500,//0-888
                           child: ListView(
                             shrinkWrap: false,
                             children: [
@@ -568,7 +568,7 @@ class MyHomePage extends StatelessWidget {
                   ),
                   Divider(height: 0),
                   ListTile(
-                    title: Text("测试视频播放fijkplayer"),
+                    title: Text("抖音视频滑动效果"),
                     onTap: () {
                       Get.toNamed(Routes.PAGE_VIDEO_2);
                     },

@@ -12,9 +12,9 @@ class VideoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("视频播放"),
-      ),
+      // appBar: AppBar(
+      //   title: Text("视频播放"),
+      // ),
       body: Center(
         child: AspectRatio(
           aspectRatio: state.controller.value.aspectRatio,
